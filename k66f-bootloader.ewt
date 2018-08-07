@@ -2364,9 +2364,6 @@
         <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_clock.h</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_cmt.c</name>
-      </file>
-      <file>
         <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_common.c</name>
       </file>
       <file>
@@ -2422,14 +2419,35 @@
       <name>$PROJ_DIR$\devices\MK66F18\fsl_device_registers.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_gpio.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_gpio.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\devices\MK66F18\MK66F18.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\devices\MK66F18\MK66F18_features.h</name>
     </file>
   </group>
+  <group>
+    <name>flash</name>
+    <file>
+      <name>$PROJ_DIR$\flash\internal_flash.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\flash\internal_flash.h</name>
+    </file>
+  </group>
   <file>
     <name>$PROJ_DIR$\main.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\MK66FN2M0xxx18_flash.icf</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\partition.h</name>
   </file>
 </project>
 

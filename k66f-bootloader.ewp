@@ -306,7 +306,7 @@
         </option>
         <option>
           <name>PreInclude</name>
-          <state></state>
+          <state>$PROJ_DIR$\devices\MK66F18\utilities\fsl_debug_console.h</state>
         </option>
         <option>
           <name>CompilerMisraOverride</name>
@@ -339,7 +339,7 @@
         </option>
         <option>
           <name>CCOptLevel</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCOptStrategy</name>
@@ -348,7 +348,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -730,7 +730,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>C:\Users\Nguyen Tran Linh\Documents\ChauNM\Mobifone\k66F-BOOTLOADER\MK66FN2M0xxx18_flash.icf</state>
+          <state>$PROJ_DIR$\MK66FN2M0xxx18_flash.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -794,7 +794,7 @@
         </option>
         <option>
           <name>DoFill</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>FillerByte</name>
@@ -806,7 +806,7 @@
         </option>
         <option>
           <name>FillerEnd</name>
-          <state>0x0</state>
+          <state>0x01FFFFF</state>
         </option>
         <option>
           <name>CrcSize</name>
@@ -1983,9 +1983,6 @@
         <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_clock.h</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_cmt.c</name>
-      </file>
-      <file>
         <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_common.c</name>
       </file>
       <file>
@@ -2041,14 +2038,35 @@
       <name>$PROJ_DIR$\devices\MK66F18\fsl_device_registers.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_gpio.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\devices\MK66F18\drivers\fsl_gpio.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\devices\MK66F18\MK66F18.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\devices\MK66F18\MK66F18_features.h</name>
     </file>
   </group>
+  <group>
+    <name>flash</name>
+    <file>
+      <name>$PROJ_DIR$\flash\internal_flash.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\flash\internal_flash.h</name>
+    </file>
+  </group>
   <file>
     <name>$PROJ_DIR$\main.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\MK66FN2M0xxx18_flash.icf</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\partition.h</name>
   </file>
 </project>
 
