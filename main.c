@@ -94,6 +94,6 @@ APPLICATION:
 		PRINTF("No appliaction firmware found\r\n"); 
 	while(1)
 	{
-		
+		//Application code for serial firmware update
 	}
 }
