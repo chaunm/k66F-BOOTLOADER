@@ -6,7 +6,9 @@
 #include "partition.h"
 #define __VERSION               "1.0"
 #define __AUTHOR                "ChauNM"
-#define __APPLICATION_ENTRY     0x00010000    
+#define __APPLICATION_ENTRY     0x00010000
+#define FIRMWARE_KEY_1			0x55AAAA55
+#define FIRMWARE_KEY_2 			0x2112FEEF
 /*!
  * @brief switch to application
 */
@@ -35,6 +37,7 @@ void main()
 {
     status_t result;
     uint32_t copySize = 0;
+	uint32_t firmwareKey[2];
 	BOARD_BootClockHSRUN();
 	BOARD_InitUARTs();
 	BOARD_InitDebugConsole();
@@ -46,12 +49,20 @@ void main()
     PRINTF("Version %s; build %s %s\r\n", __VERSION, __DATE__, __TIME__);    
     /* Init internal flash */
     IFLASH_Init();
+	// Read firmware key
+	IFLASH_CopyFlashToRam(INFORMATION_START_ADDR, (uint8_t*)firmwareKey, sizeof(firmwareKey));
+	// check if new image exists
+	if ((firmwareKey[0] != FIRMWARE_KEY_1) || (firmwareKey[1] != FIRMWARE_KEY_2))
+	{
+		goto APPLICATION;
+	}
     //check blank in image partition
     if (IFLASH_CheckBlank(IMAGE_START_ADDR, IMAGE_SIZE) != kStatus_FLASH_Success)
     {
         PRINTF("Found new image\r\n");
         // delete appliaction partition
         result = IFLASH_Erase(APPLICATION_START_ADDR, APPLICATION_SIZE);
+		
         if (result != kStatus_FLASH_Success)
         {
             PRINTF("Erase application partition failed\r\n");
@@ -73,8 +84,14 @@ void main()
         // erase image partition
         result = IFLASH_Erase(IMAGE_START_ADDR, IMAGE_SIZE);
     }
-    PRINTF("Run to appliaction @ 0x%x\r\n", APPLICATION_START_ADDR);
-    SwitchApplication(APPLICATION_START_ADDR);
+APPLICATION:
+	if (IFLASH_CheckBlank(APPLICATION_START_ADDR, APPLICATION_SIZE) != kStatus_FLASH_Success)
+	{
+    	PRINTF("Run to appliaction @ 0x%x\r\n", APPLICATION_START_ADDR);
+    	SwitchApplication(APPLICATION_START_ADDR);
+	}
+	else
+		PRINTF("No appliaction firmware found\r\n"); 
 	while(1)
 	{
 		
