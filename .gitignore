@@ -55,4 +55,4 @@ dkms.conf
 Debug
 Release
 settings
-iar/*.dep
+*.dep
